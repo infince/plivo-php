@@ -6,25 +6,25 @@ The Plivo PHP SDK makes it simpler to integrate communications into your PHP app
 
 **Supported PHP Versions**: This SDK works with PHP 7.1.0+.
 ### To Install using Infince Fork, put the following in composer.json
-        $ "repositories": [
-        $        //...
-        $        {
-        $                "type": "package",
-        $                "package": {
-        $                "name": "plivo/plivo-php",
-        $                "version": "dev-plivo-modifications",
-        $                "source": {
-        $                        "url": "https://github.com/infince/plivo-php.git",
-        $                        "type": "git",
-        $                        "reference": "dev-plivo-modifications"
-        $                },
-        $                "autoload": {
-        $                        "classmap": [""]
-        $                }
-        $                }
-        $        },
-        $        //...
-        $ ],
+         "repositories": [
+                //...
+                {
+                        "type": "package",
+                        "package": {
+                        "name": "plivo/plivo-php",
+                        "version": "dev-plivo-modifications",
+                        "source": {
+                                "url": "https://github.com/infince/plivo-php.git",
+                                "type": "git",
+                                "reference": "dev-plivo-modifications"
+                        },
+                        "autoload": {
+                                "classmap": [""]
+                        }
+                        }
+                },
+                //...
+         ],
 ## Installation
 
 ### To install Composer
