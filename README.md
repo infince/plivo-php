@@ -33,7 +33,10 @@ The Plivo PHP SDK makes it simpler to integrate communications into your PHP app
 1. In the project remove plivo package in vendor
         rm -rf vendor/plivo
 
-2. Run composer update again to see the changes
+2. Clear Composer cache
+        composer clear-cache
+
+3. Run composer update again to see the changes
         composer update
 ## Installation
 
