@@ -29,9 +29,9 @@ The Plivo PHP SDK makes it simpler to integrate communications into your PHP app
 
         $ composer update
 
-### While commiting and pusing to the repository
+### While commiting and pushing to the plivo repository
 
-1. In the project folder, remove plivo package in vendor.
+1. In the Infince project folder, remove plivo package in vendor.
 
          $ rm -rf vendor/plivo
 
