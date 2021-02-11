@@ -31,13 +31,13 @@ The Plivo PHP SDK makes it simpler to integrate communications into your PHP app
 ### While commiting and pusing to the repository
 
 1. In the project folder, remove plivo package in vendor.
-        $ rm -rf vendor/plivo
+         $ rm -rf vendor/plivo
 
 2. Clear Composer cache.
-        $ composer clear-cache
+         $ composer clear-cache
 
 3. Run composer update again to see the changes.
-        $ composer update
+         $ composer update
 ## Installation
 
 ### To install Composer
