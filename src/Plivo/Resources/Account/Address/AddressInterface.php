@@ -22,10 +22,16 @@ class AddressInterface extends ResourceInterface
     public function __construct(BaseClient $plivoClient, $accountUri)
     {
         parent::__construct($plivoClient);
-
-        $this->pathParams = [
-            'authId' => $authId
-        ];
+        if(isset($authId)) {
+            $this->pathParams = [
+                'authId' => $authId
+            ];
+        } else {
+            $this->pathParams = [
+                'authId' => null
+            ];
+        }
+        
 
         $this->uri = $accountUri . "Verification/Address/";
     }
