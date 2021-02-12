@@ -47,7 +47,7 @@ class Tollfree
      */
     public function get()
     {
-        return new Tollfree($this->client, $this->$uri);
+        return new Tollfree($this->client, $this->uri);
     }
 
     public function list($optionalArgs = []){
