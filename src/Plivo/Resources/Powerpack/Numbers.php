@@ -48,7 +48,7 @@ class Numbers
      */
     public function get()
     {
-        return new Numbers($this->client, $this->$url);
+        return new Numbers($this->client, $this->url);
     }
 
     /**
