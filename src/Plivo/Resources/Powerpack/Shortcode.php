@@ -47,7 +47,7 @@ class Shortcode
      */
     public function get()
     {
-        return new Shortcode($this->client, $this->$uri);
+        return new Shortcode($this->client, $this->uri);
     }
 
     public function list($optionalArgs = []){
