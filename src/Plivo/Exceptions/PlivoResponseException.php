@@ -43,15 +43,17 @@ class PlivoResponseException extends PlivoRestException
      * @return null|string
      */
     public function getErrorMessage()
-    {
+    {   
+        $return = "";
         if (array_key_exists(self::ERROR, $this->responseData?: [])) {
             if (is_string($this->responseData[self::ERROR])) {
-                return json_encode($this->responseData[self::ERROR]);
+                $return = json_encode($this->responseData[self::ERROR]);
             } elseif(array_key_exists(self::ERROR, $this->responseData[self::ERROR])) {
-                return json_encode($this->responseData[self::ERROR][self::ERROR]);
+                $return = json_encode($this->responseData[self::ERROR][self::ERROR]);
             } else {
-                return json_encode($this->responseData[self::ERROR]);
+                $return = json_encode($this->responseData[self::ERROR]);
             }
+            return $return;
         } else {
             return null;
         }
