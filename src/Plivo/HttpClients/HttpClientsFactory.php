@@ -33,12 +33,14 @@ class HttpClientsFactory
      */
     public static function createHttpClient($handler, $auth)
     {
+        $return = "";
+
         if (!$handler) {
-            return self::detectDefaultClient($auth);
+            $return = self::detectDefaultClient($auth);
         }
 
         if ($handler instanceof PlivoHttpClientInterface) {
-            return $handler;
+            $return = $handler;
         }
 
         if ('curl' === $handler) {
@@ -46,7 +48,7 @@ class HttpClientsFactory
                 throw new Exception('The cURL extension must be loaded in order to use the "curl" handler.');
             }
 
-            return new PlivoGuzzleHttpClient(null, $auth);
+            $return = new PlivoGuzzleHttpClient(null, $auth);
         }
 
         if ('guzzle' === $handler && !class_exists('GuzzleHttp\Client')) {
@@ -55,12 +57,14 @@ class HttpClientsFactory
         }
 
         if ($handler instanceof Client) {
-            return new PlivoGuzzleHttpClient($handler, $auth);
+            $return = new PlivoGuzzleHttpClient($handler, $auth);
         }
         if ('guzzle' === $handler) {
-            return new PlivoGuzzleHttpClient(null ,$auth);
+            $return = new PlivoGuzzleHttpClient(null ,$auth);
         }
-
+        if($return != "") {
+            return $return;
+        }
         throw new InvalidArgumentException('The http client handler must be set to "curl", "guzzle", be an instance of GuzzleHttp\Client or an instance of Plivo\HttpClients\PlivoHttpClientInterface');
     }
 
