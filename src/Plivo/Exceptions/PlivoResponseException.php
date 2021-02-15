@@ -21,6 +21,8 @@ class PlivoResponseException extends PlivoRestException
      */
     protected $statusCode;
 
+    const ERROR = self::ERROR;
+
     /**
      * PlivoResponseException constructor.
      * @param string $message
@@ -42,13 +44,13 @@ class PlivoResponseException extends PlivoRestException
      */
     public function getErrorMessage()
     {
-        if (array_key_exists('error', $this->responseData?: [])) {
-            if (is_string($this->responseData['error'])) {
-                return json_encode($this->responseData['error']);
-            } elseif(array_key_exists('error', $this->responseData['error'])) {
-                return json_encode($this->responseData['error']['error']);
+        if (array_key_exists(self::ERROR, $this->responseData?: [])) {
+            if (is_string($this->responseData[self::ERROR])) {
+                return json_encode($this->responseData[self::ERROR]);
+            } elseif(array_key_exists(self::ERROR, $this->responseData[self::ERROR])) {
+                return json_encode($this->responseData[self::ERROR][self::ERROR]);
             } else {
-                return json_encode($this->responseData['error']);
+                return json_encode($this->responseData[self::ERROR]);
             }
         } else {
             return null;
