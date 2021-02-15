@@ -74,9 +74,9 @@ class PlivoRequest
      */
     function __get($name)
     {
-        $method = "get".ucfirst($name);
-        if (method_exists($this, $method)) {
-            return $this->$method();
+        $function_name = "get".ucfirst($name);
+        if (method_exists($this, $function_name)) {
+            return $this->$function_name();
         }
 
         throw new PlivoRestException($name . ' not found');
