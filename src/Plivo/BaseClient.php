@@ -26,6 +26,7 @@ class BaseClient
     const VOICE_BASE_API_FALLBACK_URL_2 = 'https://voice-use1.plivo.com/';
     const LOOKUP_API_BASE_URL = 'https://lookup.plivo.com/';
     const IS_VOICE_REQUEST = "isVoiceRequest";
+    const IS_LOOKUP_REQUEST = "isLookupRequest";
     /**
      * @const Default timeout for request
      */
@@ -223,9 +224,9 @@ class BaseClient
         else{
             static::$isVoiceRequest = false;
         }
-        if (array_key_exists("isLookupRequest", $params)) {
+        if (array_key_exists(self::IS_LOOKUP_REQUEST, $params)) {
             static::$isLookupRequest = true;
-            unset($params['isLookupRequest']);
+            unset($params[self::IS_LOOKUP_REQUEST]);
         }
         $request =
             new PlivoRequest(
