@@ -32,6 +32,8 @@ class PlivoGuzzleHttpClient implements PlivoHttpClientInterface
      */
     protected $authToken;
 
+    const MULTIPART = 'multipart';
+
     /**
      * @param Client|null $guzzleClient
      * @param BasicAuth|null $basicAuth
@@ -108,7 +110,7 @@ class PlivoGuzzleHttpClient implements PlivoHttpClientInterface
         if (array_key_exists("isCallInsightsRequest", $request->getParams())) {
             unset($request->getParams()['isCallInsightsRequest']);
         }
-        if(isset($body['multipart'])){
+        if(isset($body[self::MULTIPART])){
             $requestBody= json_encode($request->getParams(), JSON_FORCE_OBJECT);
             unset($headers['Content-type']);
             $options = [
@@ -117,7 +119,7 @@ class PlivoGuzzleHttpClient implements PlivoHttpClientInterface
             'body' => $requestBody,
             'timeout' => $timeOut,
             'connect_timeout' => 160,
-            'multipart' => $body['multipart']
+            self::MULTIPART => $body[self::MULTIPART]
         ];
         } else{
             $options = [
