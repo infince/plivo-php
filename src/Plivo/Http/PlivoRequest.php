@@ -149,9 +149,9 @@ class PlivoRequest
      */
     public function getHeaders()
     {
-        $headers = static::getDefaultHeaders();
+        $local_headers = static::getDefaultHeaders();
 
-        return array_merge($this->headers, $headers);
+        return array_merge($this->headers, $local_headers);
     }
 
     /**
@@ -171,9 +171,9 @@ class PlivoRequest
      */
     public function getUrlEncodedBody()
     {
-        $params = $this->getPostParams();
+        $local_params = $this->getPostParams();
 
-        return http_build_query($params, null, '&');
+        return http_build_query($local_params, null, '&');
     }
 
     /**
@@ -235,14 +235,14 @@ class PlivoRequest
     {
         $this->validateMethod();
 
-        $apiVersion = $this->apiVersion . '/';
-        $endpoint = $this->getEndpoint();
+        $local_apiVersion = $this->apiVersion . '/';
+        $local_endpoint = $this->getEndpoint();
 
-        $url = $apiVersion . $endpoint;
+        $url = $local_apiVersion . $local_endpoint;
 
         if ($this->getMethod() !== 'POST') {
-            $params = $this->getParams();
-            $url = static::appendParamsToUrl($url, $params);
+            $local_params = $this->getParams();
+            $url = static::appendParamsToUrl($url, $local_params);
         }
 
         return $url;
