@@ -66,10 +66,11 @@ class PlivoResponseException extends PlivoRestException
      */
     public function getException($message)
     {
+        $return = "";
         // make exception based on the status code
         switch ($this->statusCode) {
             case 400:
-                return
+                $return =
                     $message?
                         new PlivoValidationException($message):
                         new PlivoValidationException(
@@ -77,36 +78,37 @@ class PlivoResponseException extends PlivoRestException
                             "is invalid while accessing resource");
                 break;
             case 401:
-                return
+                $return =
                     $message?
                         new PlivoAuthenticationException($message):
                         new PlivoAuthenticationException(
                         "Failed to authenticate while accessing resource");
                 break;
             case 404:
-                return
+                $return =
                     $message?
                         new PlivoNotFoundException($message):
                         new PlivoNotFoundException(
                         "Failed to authenticate while accessing resource");
                 break;
             case 405:
-                return
+                $return =
                     $message?
                         new PlivoRequestException($message):
                         new PlivoRequestException(
                         "HTTP method used is not allowed to access resource");
                 break;
             case 500:
-                return
+                $return =
                     $message?
                         new PlivoServerException($message):
                         new PlivoServerException(
                         "A server error occurred while accessing resource");
                 break;
             default:
-                return new PlivoRestException(json_encode($this->responseData));
+                $return = new PlivoRestException(json_encode($this->responseData));
         }
+        return $return;
 
     }
 
