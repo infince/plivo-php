@@ -7,11 +7,15 @@ require 'vendor/autoload.php';
 use Plivo\Resources\PHLO\PhloRestClient;
 use Plivo\Exceptions\PlivoRestException;
 
+const YOUR_AUTH_ID = "YOUR_AUTH_ID";
+const YOUR_AUTH_TOKEN = "YOUR_AUTH_TOKEN";
+const YOUR_PHLO_ID = "YOUR_PHLO_ID";
+const YOUR_NODE_ID = "YOUR_NODE_ID";
 
-$client = new PhloRestClient("YOUR_AUTH_ID", "YOUR_AUTH_TOKEN");
-$phlo = $client->phlo->get("YOUR_PHLO_ID");
+$client = new PhloRestClient(self::YOUR_AUTH_ID, self::YOUR_AUTH_TOKEN);
+$phlo = $client->phlo->get(self::YOUR_PHLO_ID);
 
-$multiPartyCall = $phlo->multiPartyCall()->get("YOUR_NODE_ID");
+$multiPartyCall = $phlo->multiPartyCall()->get(self::YOUR_NODE_ID);
 
 
 try {
@@ -33,10 +37,10 @@ use Plivo\Resources\PHLO\PhloRestClient;
 use Plivo\Exceptions\PlivoRestException;
 
 
-$client = new PhloRestClient("YOUR_AUTH_ID", "YOUR_AUTH_TOKEN");
-$phlo = $client->phlo->get("YOUR_PHLO_ID");
+$client = new PhloRestClient(self::YOUR_AUTH_ID, self::YOUR_AUTH_TOKEN);
+$phlo = $client->phlo->get(self::YOUR_PHLO_ID);
 
-$multiPartyCall = $phlo->multiPartyCall()->get("YOUR_NODE_ID");
+$multiPartyCall = $phlo->multiPartyCall()->get(self::YOUR_NODE_ID);
 
 
 try {
@@ -58,10 +62,10 @@ use Plivo\Resources\PHLO\PhloRestClient;
 use Plivo\Exceptions\PlivoRestException;
 
 
-$client = new PhloRestClient("YOUR_AUTH_ID", "YOUR_AUTH_TOKEN");
-$phlo = $client->phlo->get("YOUR_PHLO_ID");
+$client = new PhloRestClient(self::YOUR_AUTH_ID , self::YOUR_AUTH_TOKEN);
+$phlo = $client->phlo->get(self::YOUR_PHLO_ID);
 
-$multiPartyCall = $phlo->multiPartyCall()->get("YOUR_NODE_ID");
+$multiPartyCall = $phlo->multiPartyCall()->get(self::YOUR_NODE_ID);
 
 
 try {
@@ -83,10 +87,10 @@ use Plivo\Resources\PHLO\PhloRestClient;
 use Plivo\Exceptions\PlivoRestException;
 
 
-$client = new PhloRestClient("YOUR_AUTH_ID", "YOUR_AUTH_TOKEN");
-$phlo = $client->phlo->get("YOUR_PHLO_ID");
+$client = new PhloRestClient(self::YOUR_AUTH_ID , self::YOUR_AUTH_TOKEN);
+$phlo = $client->phlo->get(self::YOUR_PHLO_ID);
 
-$multiPartyCall = $phlo->multiPartyCall()->get("YOUR_NODE_ID");
+$multiPartyCall = $phlo->multiPartyCall()->get(self::YOUR_NODE_ID);
 $multiPartyCallMember = $multiPartyCall->member($memberAddress);
 
 try {
@@ -108,10 +112,10 @@ use Plivo\Resources\PHLO\PhloRestClient;
 use Plivo\Exceptions\PlivoRestException;
 
 
-$client = new PhloRestClient("YOUR_AUTH_ID", "YOUR_AUTH_TOKEN");
-$phlo = $client->phlo->get("YOUR_PHLO_ID");
+$client = new PhloRestClient(self::YOUR_AUTH_ID , self::YOUR_AUTH_TOKEN);
+$phlo = $client->phlo->get(self::YOUR_PHLO_ID);
 
-$multiPartyCall = $phlo->multiPartyCall()->get("YOUR_NODE_ID");
+$multiPartyCall = $phlo->multiPartyCall()->get(self::YOUR_NODE_ID);
 $multiPartyCallMember = $multiPartyCall->member($memberAddress);
 
 try {
@@ -133,10 +137,10 @@ use Plivo\Resources\PHLO\PhloRestClient;
 use Plivo\Exceptions\PlivoRestException;
 
 
-$client = new PhloRestClient("YOUR_AUTH_ID", "YOUR_AUTH_TOKEN");
-$phlo = $client->phlo->get("YOUR_PHLO_ID");
+$client = new PhloRestClient(self::YOUR_AUTH_ID , self::YOUR_AUTH_TOKEN);
+$phlo = $client->phlo->get(self::YOUR_PHLO_ID);
 
-$multiPartyCall = $phlo->multiPartyCall()->get("YOUR_NODE_ID");
+$multiPartyCall = $phlo->multiPartyCall()->get(self::YOUR_NODE_ID);
 $multiPartyCallMember = $multiPartyCall->member($memberAddress);
 
 try {
@@ -158,10 +162,10 @@ use Plivo\Resources\PHLO\PhloRestClient;
 use Plivo\Exceptions\PlivoRestException;
 
 
-$client = new PhloRestClient("YOUR_AUTH_ID", "YOUR_AUTH_TOKEN");
-$phlo = $client->phlo->get("YOUR_PHLO_ID");
+$client = new PhloRestClient(self::YOUR_AUTH_ID , self::YOUR_AUTH_TOKEN);
+$phlo = $client->phlo->get(self::YOUR_PHLO_ID);
 
-$multiPartyCall = $phlo->multiPartyCall()->get("YOUR_NODE_ID");
+$multiPartyCall = $phlo->multiPartyCall()->get(self::YOUR_NODE_ID);
 $multiPartyCallMember = $multiPartyCall->member($memberAddress);
 
 try {
@@ -183,10 +187,10 @@ use Plivo\Resources\PHLO\PhloRestClient;
 use Plivo\Exceptions\PlivoRestException;
 
 
-$client = new PhloRestClient("YOUR_AUTH_ID", "YOUR_AUTH_TOKEN");
-$phlo = $client->phlo->get("YOUR_PHLO_ID");
+$client = new PhloRestClient(self::YOUR_AUTH_ID , self::YOUR_AUTH_TOKEN);
+$phlo = $client->phlo->get(self::YOUR_PHLO_ID);
 
-$multiPartyCall = $phlo->multiPartyCall()->get("YOUR_NODE_ID");
+$multiPartyCall = $phlo->multiPartyCall()->get(self::YOUR_NODE_ID);
 $multiPartyCallMember = $multiPartyCall->member($memberAddress);
 
 try {
@@ -211,10 +215,10 @@ use Plivo\Resources\PHLO\PhloRestClient;
 use Plivo\Exceptions\PlivoRestException;
 
 
-$client = new PhloRestClient("YOUR_AUTH_ID", "YOUR_AUTH_TOKEN");
-$phlo = $client->phlo->get("YOUR_PHLO_ID");
+$client = new PhloRestClient(self::YOUR_AUTH_ID , self::YOUR_AUTH_TOKEN);
+$phlo = $client->phlo->get(self::YOUR_PHLO_ID);
 
-$multiPartyCall = $phlo->multiPartyCall()->get("YOUR_NODE_ID");
+$multiPartyCall = $phlo->multiPartyCall()->get(self::YOUR_NODE_ID);
 $multiPartyCallMember = $multiPartyCall->member($memberAddress);
 
 try {
@@ -236,10 +240,10 @@ use Plivo\Resources\PHLO\PhloRestClient;
 use Plivo\Exceptions\PlivoRestException;
 
 
-$client = new PhloRestClient("YOUR_AUTH_ID", "YOUR_AUTH_TOKEN");
-$phlo = $client->phlo->get("YOUR_PHLO_ID");
+$client = new PhloRestClient(self::YOUR_AUTH_ID , self::YOUR_AUTH_TOKEN);
+$phlo = $client->phlo->get(self::YOUR_PHLO_ID);
 
-$multiPartyCall = $phlo->multiPartyCall()->get("YOUR_NODE_ID");
+$multiPartyCall = $phlo->multiPartyCall()->get(self::YOUR_NODE_ID);
 $multiPartyCallMember = $multiPartyCall->member($memberAddress);
 
 try {
@@ -262,8 +266,8 @@ use Plivo\Resources\PHLO\PhloRestClient;
 use Plivo\Exceptions\PlivoRestException;
 
 
-$client = new PhloRestClient("YOUR_AUTH_ID", "YOUR_AUTH_TOKEN");
-$phlo = $client->phlo->get("YOUR_PHLO_ID");
+$client = new PhloRestClient(self::YOUR_AUTH_ID , self::YOUR_AUTH_TOKEN);
+$phlo = $client->phlo->get(self::YOUR_PHLO_ID);
 
 try {
 	$response = $phlo->run(["field1" => "value1", "field2" => "value2"]); // These are the fields entered in the PHLO console
@@ -284,8 +288,8 @@ use Plivo\Resources\PHLO\PhloRestClient;
 use Plivo\Exceptions\PlivoRestException;
 
 
-$client = new PhloRestClient("YOUR_AUTH_ID", "YOUR_AUTH_TOKEN");
-$phlo = $client->phlo->getPhlo("YOUR_PHLO_ID");
+$client = new PhloRestClient(self::YOUR_AUTH_ID , self::YOUR_AUTH_TOKEN);
+$phlo = $client->phlo->getPhlo(self::YOUR_PHLO_ID);
 print_r($response);
 
 ?>
