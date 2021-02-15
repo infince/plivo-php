@@ -55,6 +55,9 @@ class PlivoRequest
         array $headers = [],
         $apiVersion = null)
     {
+        if($headers == []) {
+            $headers = null;
+        }
         $this->setMethod($method);
         $this->setEndpoint($endpoint);
         $this->setParams($params);
