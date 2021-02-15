@@ -25,6 +25,7 @@ class BaseClient
     const VOICE_BASE_API_FALLBACK_URL_1 = 'https://voice-usw1.plivo.com/';
     const VOICE_BASE_API_FALLBACK_URL_2 = 'https://voice-use1.plivo.com/';
     const LOOKUP_API_BASE_URL = 'https://lookup.plivo.com/';
+    const IS_VOICE_REQUEST = "isVoiceRequest";
     /**
      * @const Default timeout for request
      */
@@ -215,9 +216,9 @@ class BaseClient
      */
     public function fetch($uri, $params)
     {
-        if (array_key_exists("isVoiceRequest", $params)) {
+        if (array_key_exists(self::IS_VOICE_REQUEST, $params)) {
             static::$isVoiceRequest = true;
-            unset($params['isVoiceRequest']);
+            unset($params[self::IS_VOICE_REQUEST]);
         }
         else{
             static::$isVoiceRequest = false;
@@ -246,9 +247,9 @@ class BaseClient
             $isCallInsightsRequest = TRUE;
             $url = $params['CallInsightsEndpoint'];
             unset($params['CallInsightsEndpoint']);
-        } elseif (array_key_exists("isVoiceRequest", $params)) {
+        } elseif (array_key_exists(self::IS_VOICE_REQUEST, $params)) {
             static::$isVoiceRequest = true;
-            unset($params['isVoiceRequest']);
+            unset($params[self::IS_VOICE_REQUEST]);
         }
         else{
             static::$isVoiceRequest = false;
@@ -313,9 +314,9 @@ class BaseClient
      */
     public function delete($uri, $params)
     {
-        if (array_key_exists("isVoiceRequest", $params)) {
+        if (array_key_exists(self::IS_VOICE_REQUEST, $params)) {
             static::$isVoiceRequest = true;
-            unset($params['isVoiceRequest']);
+            unset($params[self::IS_VOICE_REQUEST]);
         }
         else{
             static::$isVoiceRequest = false;
