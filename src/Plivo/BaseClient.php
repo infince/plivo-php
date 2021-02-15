@@ -166,6 +166,7 @@ class BaseClient
     public function sendRequest(PlivoRequest $request, $url = null)
     {
         $fullUrl = $url ? $url : null;
+        $return = null;
         list($url, $method, $headers, $body) =
             $this->prepareRequestMessage($request, $fullUrl);
         if (static::$isVoiceRequest) {
@@ -180,16 +181,16 @@ class BaseClient
         if (static::$isLookupRequest) {
             $url = self::LOOKUP_API_BASE_URL . $request->getUrl();
         }
-        $timeout = $this->timeout ?: static::DEFAULT_REQUEST_TIMEOUT;
+        $requestTimeout = $this->timeout ?: static::DEFAULT_REQUEST_TIMEOUT;
 
         $plivoResponse =
             $this->httpClientHandler->send_request(
-                $url, $method, $body, $headers, $timeout, $request);
+                $url, $method, $body, $headers, $requestTimeout, $request);
 
         static::$requestCount++;
 
         if (!$plivoResponse->ok() && !static::$isVoiceRequest) {
-            return $plivoResponse;
+            $return = $plivoResponse;
         }
         if ($plivoResponse->getStatusCode() >= 500 && static::$isVoiceRequest) {
             static::$voiceRetryCount++;
@@ -197,9 +198,12 @@ class BaseClient
                 static::$voiceRetryCount = 0;
                 return $plivoResponse;
             }
-            return $this->sendRequest($request, null);
+            $return = $this->sendRequest($request, null);
         }
         static::$voiceRetryCount = 0;
+        if($return != null) {
+            return $return;
+        }
         return $plivoResponse;
     }
 
