@@ -21,7 +21,7 @@ class PlivoResponseException extends PlivoRestException
      */
     protected $statusCode;
 
-    const ERROR = self::ERROR;
+    const ERROR = 'error';
 
     /**
      * PlivoResponseException constructor.
